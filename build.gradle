@@ -11,7 +11,19 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    javaMainClass = "com.twu.biblioteca.app.Run"
+}
+
+task run(type: JavaExec) {
+    group = "Execution"
+    description = "Run the main class Biblioteca runner"
+    classpath = sourceSets.main.runtimeClasspath
+    main = javaMainClass
+}
+
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile 'org.mockito:mockito-core:3.2.4'
 }
+
