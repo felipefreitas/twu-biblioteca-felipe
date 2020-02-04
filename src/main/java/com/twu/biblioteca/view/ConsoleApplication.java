@@ -4,6 +4,7 @@ import java.io.PrintStream;
 
 public class ConsoleApplication {
 
+    public static final String WELCOME = "Welcome to Biblioteca. Your one-stop-shop for great books titles in Bangalore!";
     private PrintStream _printStream;
 
     public ConsoleApplication(PrintStream printStream) {
@@ -11,6 +12,6 @@ public class ConsoleApplication {
     }
 
     public void showWelcomeMessage() {
-        this._printStream.println("Welcome to Biblioteca. Your one-stop-shop for great books titles in Bangalore!");
+        this._printStream.println(WELCOME);
     }
 }
