@@ -11,7 +11,10 @@ public class ConsoleApplication {
         this._printStream = printStream;
     }
 
-    public void showWelcomeMessage() {
+    public void printWelcomeMessage() {
         this._printStream.println(WELCOME);
+    }
+
+    public void printBookList() {
     }
 }

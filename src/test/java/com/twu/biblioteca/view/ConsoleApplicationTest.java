@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.io.PrintStream;
 
+import static org.mockito.ArgumentMatchers.startsWith;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -21,9 +22,16 @@ public class ConsoleApplicationTest {
     }
 
     @Test
-    public void shouldDisplayWelcomeMessage() {
-        consoleApplication.showWelcomeMessage();
+    public void shouldPrintWelcomeMessage() {
+        consoleApplication.printWelcomeMessage();
 
         verify(printStreamMock).println(WELCOME);
+    }
+
+    @Test
+    public void shouldPrintBookList() {
+        consoleApplication.printBookList();
+
+        verify(printStreamMock).println(startsWith("List"));
     }
 }
