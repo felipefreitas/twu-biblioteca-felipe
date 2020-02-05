@@ -1,4 +1,4 @@
-package com.twu.biblioteca.view;
+package com.twu.biblioteca;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -9,29 +9,29 @@ import static org.mockito.ArgumentMatchers.startsWith;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class ConsoleApplicationTest {
+public class ConsoleTest {
 
     public static final String WELCOME = "Welcome to Biblioteca. Your one-stop-shop for great books titles in Bangalore!";
-    private ConsoleApplication consoleApplication;
-    private PrintStream printStreamMock;
+    private Console _console;
+    private PrintStream _printStreamMock;
 
     @Before
     public void setupStream() throws Exception {
-        printStreamMock = mock(PrintStream.class);
-        consoleApplication = new ConsoleApplication(printStreamMock);
+        _printStreamMock = mock(PrintStream.class);
+        _console = new Console(_printStreamMock);
     }
 
     @Test
     public void shouldPrintWelcomeMessage() {
-        consoleApplication.printWelcomeMessage();
+        _console.printWelcomeMessage();
 
-        verify(printStreamMock).println(WELCOME);
+        verify(_printStreamMock).println(WELCOME);
     }
 
     @Test
     public void shouldPrintBookList() {
-        consoleApplication.printBookList();
+        _console.printBookList();
 
-        verify(printStreamMock).println(startsWith("List"));
+        verify(_printStreamMock).println(startsWith("List"));
     }
 }
