@@ -2,7 +2,6 @@ package com.twu.biblioteca;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -14,6 +13,7 @@ import static org.mockito.Mockito.*;
 public class ConsoleTest {
 
     public static final String WELCOME = "Welcome to Biblioteca. Your one-stop-shop for great books titles in Bangalore!";
+    public static final String BOOK_LIST_TITLE = "List of Books:";
     public static final String BOOK_LIST = "List of Books: Book {name='one', author='authorOne'}, Book {name='two', author='authorTwo'}";
 
     private Console console;
@@ -42,7 +42,14 @@ public class ConsoleTest {
     public void shouldPrintBookList() {
         console.printBookList();
 
-        verify(printStreamMock).println(startsWith(BOOK_LIST));
+        verify(printStreamMock).println(startsWith(BOOK_LIST_TITLE));
+    }
+
+    @Test
+    public void shouldViewAuthorAndPublicationYearOnAllBooks() {
+        console.printBookList();
+
+        verify(printStreamMock).println(eq(BOOK_LIST));
     }
 
     private List<Book> createBookList() {
