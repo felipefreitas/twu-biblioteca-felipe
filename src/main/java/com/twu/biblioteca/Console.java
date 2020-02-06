@@ -21,8 +21,8 @@ public class Console {
     }
 
     public void printBookList() {
-        List<Book> books = this.library.getBooks();
+        String books = this.library.getBooksString();
 
-        this.printStream.println(BOOK_LIST_TITLE);
+        this.printStream.println(BOOK_LIST_TITLE + books);
     }
 }
