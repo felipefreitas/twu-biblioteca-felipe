@@ -6,7 +6,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "Book {" +
                 "name='" + this.name + '\'' +
                 ", author='" + this.author + '\'' +
                 '}';

@@ -13,6 +13,7 @@ import static org.mockito.Mockito.*;
 public class ConsoleTest {
 
     public static final String WELCOME = "Welcome to Biblioteca. Your one-stop-shop for great books titles in Bangalore!";
+    public static final String BOOK_LIST_TITLE = "List of Books:";
 
     private Console console;
     private PrintStream printStreamMock;
@@ -26,7 +27,7 @@ public class ConsoleTest {
         printStreamMock = mock(PrintStream.class);
         libraryMock = mock(Library.class);
 
-        when(libraryMock.getBooks()).thenReturn(books);
+        when(libraryMock.getBooksString()).thenReturn("");
 
         console = new Console(printStreamMock, libraryMock);
     }
@@ -42,6 +43,6 @@ public class ConsoleTest {
     public void shouldPrintBookList() {
         console.printBookList();
 
-        verify(printStreamMock).println(startsWith("List"));
+        verify(printStreamMock).println(startsWith(BOOK_LIST_TITLE));
     }
 }
