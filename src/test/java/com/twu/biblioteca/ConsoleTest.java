@@ -25,12 +25,8 @@ public class ConsoleTest {
         printStreamMock = mock(PrintStream.class);
         libraryMock = mock(Library.class);
 
-        List<Book> books = new ArrayList<>();
-
-        books.add(new Book("one", "authorOne"));
-        books.add(new Book("two", "authorTwo"));
-
-        when(libraryMock.getBooks()).thenReturn(books);
+        when(libraryMock.getBooks())
+                .thenReturn(createBookList());
 
         console = new Console(printStreamMock, libraryMock);
     }
@@ -47,5 +43,14 @@ public class ConsoleTest {
         console.printBookList();
 
         verify(printStreamMock).println(startsWith(BOOK_LIST));
+    }
+
+    private List<Book> createBookList() {
+        List<Book> books = new ArrayList<>();
+
+        books.add(new Book("one", "authorOne"));
+        books.add(new Book("two", "authorTwo"));
+
+        return books;
     }
 }
