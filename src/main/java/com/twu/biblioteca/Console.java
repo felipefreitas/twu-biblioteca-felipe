@@ -24,12 +24,12 @@ public class Console {
     public void printBookList() {
         List<Book> books = this.library.getBooks();
 
-        this.printStream.println(BOOK_LIST_TITLE + convertListToString(books));
+        this.printStream.println(BOOK_LIST_TITLE + '\n' + convertListToString(books));
     }
 
     private <T> String convertListToString(List<T> list) {
         return list.stream()
                 .map(T::toString)
-                .collect(Collectors.joining(", "));
+                .collect(Collectors.joining("\n"));
     }
 }

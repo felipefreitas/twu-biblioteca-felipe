@@ -13,8 +13,8 @@ import static org.mockito.Mockito.*;
 public class ConsoleTest {
 
     public static final String WELCOME = "Welcome to Biblioteca. Your one-stop-shop for great books titles in Bangalore!";
-    public static final String BOOK_LIST_TITLE = "List of Books:";
-    public static final String BOOK_LIST = "List of Books: Book {name='one', author='authorOne'}, Book {name='two', author='authorTwo'}";
+    public static final String BOOK_LIST_TITLE = "List of Books: ";
+    public static final String BOOK_LIST = "List of Books: \n|'one'\t|'authorOne'\t|'2001'\t|\n|'two'\t|'authorTwo'\t|'2002'\t|";
 
     private Console console;
     private PrintStream printStreamMock;
@@ -55,8 +55,8 @@ public class ConsoleTest {
     private List<Book> createBookList() {
         List<Book> books = new ArrayList<>();
 
-        books.add(new Book("one", "authorOne"));
-        books.add(new Book("two", "authorTwo"));
+        books.add(new Book("one", "authorOne", "2001"));
+        books.add(new Book("two", "authorTwo", "2002"));
 
         return books;
     }

@@ -5,9 +5,9 @@ import java.util.Date;
 public class Book {
     private String name;
     private String author;
-    private Date year;
+    private String year;
 
-    public Book(String name, String author) {
+    public Book(String name, String author, String year) {
         this.name = name;
         this.author = author;
         this.year = year;
@@ -15,10 +15,8 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book {" +
-                "name='" + this.name + '\'' +
-                ", author='" + this.author + '\'' +
-                ", year='" + this.year + '\'' +
-                '}';
+        return "|'" + this.name     + "'\t|" +
+                "'" + this.author   + "'\t|" +
+                "'" + this.year     + "'\t|";
     }
 }
